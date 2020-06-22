@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Main Menu</title>
+
+    <link rel="stylesheet" href="../../static/css/bootstrap.css" th:href="@{/css/bootstrap.css}" type="text/css">
+    <link rel="stylesheet" href="../../static/css/custom.css" th:href="@{/css/custom.css}" type="text/css">
+    <link rel="stylesheet" href="../../static/css/style.css" th:href="@{/css/style.css}" type="text/css">
+    <script th:href="@{/js/bootstrap.min.js}" type="text/javascript"></script>
+    <script th:href="@{/js/jquery.min.js}" type="text/javascript"></script>
+
+</head>
+<body>
+    <div class="container">
+        <img class="logo" src="https://playitcool.pl/wp-content/uploads/2019/12/Logo.png" alt="Logo firmy PlayITCool"/>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item active" aria-current="page">Process</li>
+            </ol>
+        </nav>
+        <hr>
+        <h2 class="title">Process</h2>
+            <center>
+                <table>
+                    <tr>
+                        <td>
+                            <a href="/process_add" class="btn btn-primary" role="button">Add Process Form</a>
+                        </td>
+                        <td>
+                            <a href="/process_list" class="btn btn-primary" role="button">All Process List</a>
+                        </td>
+                        <td>
+                            <a href="https://www.linkedin.com" target="_blank" class="btn btn-primary" role="button">Workspace</a>
+                        </td>
+                        <td>
+                            <div class="dropdown">
+                                <button class="btn btn-primary dropdown-toggle" id="menu1" type="button" data-toggle="dropdown">Break Time
+                                    <span class="caret"></span></button>
+                                <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                                    <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="https://www.pyszne.pl">Eating</a></li>
+                                    <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="https://www.youtube.com">Music</a></li>
+                                    <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="https://www.netflix.com">Film</a></li>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </center>
+    </div>
+    <center>
+        <div class="footer">
+            <a href="https://playitcool.pl">www.playitcool.pl</a>
+        </div>
+    </center>
+</body>
+</html>

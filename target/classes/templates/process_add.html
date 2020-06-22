@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Process Add Form</title>
+    <link rel="stylesheet" href="../../static/css/bootstrap.css" th:href="@{/css/bootstrap.css}" type="text/css">
+    <link rel="stylesheet" href="../../static/css/custom.css" th:href="@{/css/custom.css}" type="text/css">
+    <link rel="stylesheet" href="../../static/css/style.css" th:href="@{/css/style.css}" type="text/css">
+</head>
+<body>
+<div class="container">
+    <img class="logo" src="https://playitcool.pl/wp-content/uploads/2019/12/Logo.png" alt="Logo firmy PlayITCool"/>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="http://localhost:8080">Process</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Process Form</li>
+        </ol>
+    </nav>
+    <hr>
+    <h2 class="title">Process Form</h2>
+    <div class="form-group">
+        <form action="#" class="form-group" th:action="@{/save_process}" th:object="${process}" method="post">
+            <input type="hidden" th:field="*{id}">
+            <input type="text" class="form-control" th:field="*{position}" placeholder="Position"><br>
+            <input type="text" class="form-control" th:field="*{maxSalary}" placeholder="MaxSalary"><br>
+            <input type="text" class="form-control" th:field="*{location}" placeholder="Location"><br>
+            <input type="text" class="form-control" th:field="*{technology}" placeholder="Technology"><br>
+            <input type="text" class="form-control" th:field="*{target}" placeholder="Target"><br>
+            <input type="date" class="form-control" th:field="*{date}" placeholder="Date"><br>
+            <input type="text" class="form-control" th:field="*{candidatesInTheProcess}" placeholder="CandidatesInTheProcess"><br>
+            <input type="submit" class="btn btn-primary">
+            <!--<input type="hidden" th:field="*{Save to database}">-->
+        </form>
+    </div>
+</div>
+<center>
+    <div class="footer">
+        <a href="https://playitcool.pl">www.playitcool.pl</a>
+    </div>
+</center>
+</body>
+</html>

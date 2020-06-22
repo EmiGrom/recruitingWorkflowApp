@@ -1,0 +1,34 @@
+hr{
+    background-color:#ffd607;
+}
+
+a{
+    color:#808080;
+}
+a:hover{
+    color:#ffd607;
+    text-decoration: underline;
+}
+a:focus{
+    color:#ffd607;
+    text-decoration: underline;
+}
+.title{
+    text-align: center;
+    color: 	#808080;
+    padding-bottom: 25px;
+}
+.logo{
+    padding-top: 25px;
+    padding-bottom: 25px;
+    max-width: 30%;
+}
+.textcenter{
+    text-align: center;
+}
+.footer{
+    background-color:rgba(0,0,0,.08);
+    margin-top: 25px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}

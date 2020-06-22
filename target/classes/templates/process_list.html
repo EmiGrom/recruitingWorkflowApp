@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:form="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>All Process List</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../static/css/bootstrap.css" th:href="@{/css/bootstrap.css}" type="text/css">
+    <link rel="stylesheet" href="../../static/css/custom.css" th:href="@{/css/custom.css}" type="text/css">
+    <link rel="stylesheet" href="../../static/css/style.css" th:href="@{/css/style.css}" type="text/css">
+</head>
+<body>
+
+<!--<div th:replace="@/fragments/scripts.html :: div.scripts-top-bar"></div>
+<div th:replace="@/fragments/top_bar.html :: div.top-bar"></div>-->
+<div class="container">
+    <img class="logo" src="https://playitcool.pl/wp-content/uploads/2019/12/Logo.png" alt="Logo firmy PlayITCool"/>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="http://localhost:8080">Process</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Process List</li>
+        </ol>
+    </nav>
+    <hr>
+    <h2 class="title">Process List</h2>
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>id</th>
+            <th>Position</th>
+            <th>Max salary</th>
+            <th>Location</th>
+            <th>Technology</th>
+            <th>Target</th>
+            <th>Date</th>
+            <th>Candidates</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr data-th-each="process : ${list}">
+            <td th:text="${process.id}"></td>
+            <td th:text="${process.position}"></td>
+            <td class="textcenter" th:text="${process.maxSalary}"></td>
+            <td th:text="${process.location}"></td>
+
+            <td th:text="${process.technology}"></td>
+            <td class="textcenter" th:text="${process.target}"></td>
+            <td th:text="${process.date}"></td>
+            <td class="textcenter" th:text="${process.candidatesInTheProcess}"></td>
+            <td class="action-td">
+                <div class="btn-group" role="group" aria-label="Edit adn delete">
+                <form method="post" action="#" th:action="@{/delete}">
+                    <input type="hidden" th:name="process_id" th:value="${process.id}">
+                    <input type="submit" class="btn btn-danger" value="Delete">
+                </form>
+                <form method="post" action="#" th:action="@{/edit}">
+                    <input type="hidden" th:name="process_id" th:value="${process.id}">
+                    <input type="submit" class="btn btn-primary" value="Edit">
+                </form>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<center>
+    <div class="footer">
+        <a href="https://playitcool.pl">www.playitcool.pl</a>
+    </div>
+</center>
+</body>
+</html>
