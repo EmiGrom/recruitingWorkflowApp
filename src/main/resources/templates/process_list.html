@@ -48,7 +48,7 @@
             <td th:text="${process.date}"></td>
             <td class="textcenter" th:text="${process.candidatesInTheProcess}"></td>
             <td class="action-td">
-                <div class="btn-group" role="group" aria-label="Edit adn delete">
+                <div class="btn-group" role="group" aria-label="Edit and delete">
                 <form method="post" action="#" th:action="@{/delete}">
                     <input type="hidden" th:name="process_id" th:value="${process.id}">
                     <input type="submit" class="btn btn-danger" value="Delete">

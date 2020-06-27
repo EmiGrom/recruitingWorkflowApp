@@ -13,10 +13,10 @@ import java.util.Properties;
 @Component
 public class EmailService implements CommandLineRunner {
 
-    public void run(String... args) throws Exception {
+    public void run(String... args) {
 
-        final String username = "twójmail@gmail.com";
-        final String password = "hasło";
+        final String username = "recruitingworkflowapp@gmail.com";
+        final String password = "5438gkfj";
 
         Properties prop = new Properties();
         prop.put("mail.smtp.host", "smtp.gmail.com");
@@ -26,7 +26,7 @@ public class EmailService implements CommandLineRunner {
         prop.put("mail.smtp.ssl.trust", "smtp.gmail.com");
 
         Session session = Session.getInstance(prop,
-                new javax.mail.Authenticator() {
+                new Authenticator() {
                     protected PasswordAuthentication getPasswordAuthentication() {
                         return new PasswordAuthentication(username, password);
                     }
@@ -40,12 +40,13 @@ public class EmailService implements CommandLineRunner {
         try {
 
             Message message = new MimeMessage(session);
-            message.setFrom(new InternetAddress("twójmail@gmail.com"));
+            message.setFrom(new InternetAddress("recruitingworkflowapp@gmail.com"));
             message.setRecipients(
                     Message.RecipientType.TO,
-                    InternetAddress.parse("maildocelowy@gmail.com")
+                    InternetAddress.parse("recruitingemailreminder@gmail.com")
             );
             message.setSubject("Notify from RecruitingWorkflowApp");
+            //TODO text do maila
             message.setText("Zbliża się koniec rekrutacji");
 
             Transport.send(message);
