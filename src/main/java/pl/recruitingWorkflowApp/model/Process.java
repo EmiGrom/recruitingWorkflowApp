@@ -7,7 +7,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import java.time.LocalDate;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 
 @Data
@@ -20,26 +22,33 @@ public class Process {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
+    @NotEmpty
     private String position;
 
+    @NotNull
+    @Min(value = 1800)
     private float maxSalary;
 
+    @NotEmpty
     private String location;
 
+    @NotEmpty
     private String technology;
 
+    @NotNull
+    @Min(value = 1)
     private int target;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
-    @EqualsAndHashCode.Exclude
-    private LocalDate date;
+    private String date;
 
+    @Min(value = 0)
     private int candidatesInTheProcess;
 
     public Process() {
     }
 
-    public Process(String position, float maxSalary, String location, String technology, int target, LocalDate date, int candidatesInTheProcess) {
+    public Process(String position, float maxSalary, String location, String technology, int target, String date, int candidatesInTheProcess) {
         this.position = position;
         this.maxSalary = maxSalary;
         this.location = location;

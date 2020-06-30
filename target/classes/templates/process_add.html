@@ -21,13 +21,28 @@
     <div class="form-group">
         <form action="#" class="form-group" th:action="@{/save_process}" th:object="${process}" method="post">
             <input type="hidden" th:field="*{id}">
+
+            <p class="text-danger mb-10" th:if="${#fields.hasErrors('position')}" th:errors="*{position}"/>
             <input type="text" class="form-control" th:field="*{position}" placeholder="Position"><br>
+
+            <p class="text-danger mb-10" th:if="${#fields.hasErrors('maxSalary')}" th:errors="*{maxSalary}"/>
             <input type="text" class="form-control" th:field="*{maxSalary}" placeholder="MaxSalary"><br>
+
+            <p class="text-danger mb-10" th:if="${#fields.hasErrors('location')}" th:errors="*{location}"/>
             <input type="text" class="form-control" th:field="*{location}" placeholder="Location"><br>
+
+            <p class="text-danger mb-10" th:if="${#fields.hasErrors('technology')}" th:errors="*{technology}"/>
             <input type="text" class="form-control" th:field="*{technology}" placeholder="Technology"><br>
+
+            <p class="text-danger mb-10" th:if="${#fields.hasErrors('target')}" th:errors="*{target}"/>
             <input type="text" class="form-control" th:field="*{target}" placeholder="Target"><br>
+
+            <p class="text-danger mb-10" th:if="${#fields.hasErrors('date')}" th:errors="*{date}"/>
             <input type="date" class="form-control" th:field="*{date}" placeholder="Date"><br>
+
+            <p class="text-danger mb-10" th:if="${#fields.hasErrors('candidatesInTheProcess')}" th:errors="*{candidatesInTheProcess}"/>
             <input type="text" class="form-control" th:field="*{candidatesInTheProcess}" placeholder="CandidatesInTheProcess"><br>
+
             <input type="submit" class="btn btn-primary">
         </form>
     </div>

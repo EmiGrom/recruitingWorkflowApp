@@ -7,6 +7,6 @@ CREATE TABLE PROCESS (
   location VARCHAR(250) DEFAULT NULL,
   technology VARCHAR(250) DEFAULT NULL,
   target INT NOT NULL,
-  "date" DATE NOT NULL,
+  date VARCHAR(250) DEFAULT NULL,
   candidates_in_the_process INT NOT NULL
 );

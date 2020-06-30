@@ -1,4 +1,4 @@
-package pl.recruitingWorkflowApp;
+/*TODO */ /*package pl.recruitingWorkflowApp;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -26,4 +26,4 @@ public class ProcessInitializer implements CommandLineRunner {//CommandLineRunne
         System.out.println("...finish initializing data");
         //przykładowych procesów nie da się edytować i usuwać
     }
-}
+}*/

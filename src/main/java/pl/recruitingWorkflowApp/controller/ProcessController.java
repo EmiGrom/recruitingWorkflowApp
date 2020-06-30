@@ -3,6 +3,7 @@ package pl.recruitingWorkflowApp.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import pl.recruitingWorkflowApp.model.Process;
@@ -11,6 +12,7 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
+import javax.validation.Valid;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.*;
@@ -36,37 +38,24 @@ public class ProcessController {
 
     @RequestMapping(value = "/edit", method = RequestMethod.POST)
     public ModelAndView edit(@RequestParam(value = "process_id") int id) {
-        return new ModelAndView("process_add", "process", getProcessViaId(id));
+        return new ModelAndView("process_add", "process", processService.getProcessById(id));
     }
 
 
     @RequestMapping(value = "/save_process", method = RequestMethod.POST)
-    public ModelAndView save(@ModelAttribute(value = "process") Process process) throws IOException {
-        if (process.getId() == 0) {
-            processService.save(process);
-            processList.add(process);
-        } else {
-            Process process2 = getProcessViaId(process.getId());
-            process2.setPosition(process.getPosition());
-            process2.setMaxSalary(process.getMaxSalary());
-            process2.setLocation(process.getLocation());
-            process2.setTechnology(process.getTechnology());
-            process2.setTarget(process.getTarget());
-            process2.setDate(process.getDate());
-            process2.setCandidatesInTheProcess(process.getCandidatesInTheProcess());
-            processService.save(process);
+    public String save(@ModelAttribute @Valid Process process, BindingResult result) throws IOException {
+        if (result.hasErrors()) {
+            return "process_add";
         }
-
+        processService.save(process);
         updateExcel();
-        return new ModelAndView("redirect:/process_list");
+        return "redirect:/process_list";
     }
 
 
     @RequestMapping(value = "/delete", method = RequestMethod.POST)
     public ModelAndView delete(@RequestParam(value = "process_id") int id) throws IOException {
-        Process process = getProcessViaId(id);
-        processList.remove(process);
-        processService.delete(process);
+        processService.deleteById(id);
         updateExcel();
         return new ModelAndView("redirect:/process_list");
     }
@@ -77,9 +66,9 @@ public class ProcessController {
         return new ModelAndView("process_list", "list", list);
     }
 
-    private Process getProcessViaId(@ModelAttribute int id) {
+    /*private Process getProcessViaId(@ModelAttribute int id) {
         return processList.stream().filter(f -> f.getId() == id).findFirst().get();
-    }
+    }*/
 
     private void updateExcel() throws IOException {
         XSSFWorkbook workbook = new XSSFWorkbook();

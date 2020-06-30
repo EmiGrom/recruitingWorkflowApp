@@ -14,18 +14,22 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ProcessService {
 
-    private final ProcessRepository repository;
+    private final ProcessRepository processRepository;
 
     public List<Process> getAll() {
-        return repository.findAll().stream().collect(Collectors.toList());
+        return processRepository.findAll().stream().collect(Collectors.toList());
     }
 
     public void save(Process process) {
-        repository.save(process);
+        processRepository.save(process).getId();
     }
 
-    public void delete(Process process) {
-        repository.delete(process);
+    public Process getProcessById(int id) {
+        return processRepository.getOne(id);
+    }
+
+    public void deleteById(int id) {
+        processRepository.delete(getProcessById(id));
     }
 }
 
