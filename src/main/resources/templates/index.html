@@ -5,7 +5,7 @@
     <title>Main Menu</title>
 
     <link rel="stylesheet" href="../../static/css/bootstrap.css" th:href="@{/css/bootstrap.css}" type="text/css">
-    <link rel="stylesheet" href="../../static/css/custom.css" th:href="@{/css/custom.css}" type="text/css">
+    <link rel="stylesheet" href="../../static/css/main.css" th:href="@{/css/main.css}" type="text/css">
     <link rel="stylesheet" href="../../static/css/style.css" th:href="@{/css/style.css}" type="text/css">
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
@@ -50,7 +50,97 @@
                     </tr>
                 </table>
             </center>
+        <div class="space"></div>
+        <div class="accordion" id="accordionExample">
+            <div class="card">
+                <div class="card-header" id="headingOne">
+                    <h2 class="mb-0">
+                        <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            Projekt PHP
+                        </button>
+                    </h2>
+                </div>
+
+                <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                    <div class="card-body">
+                        <p>Zadania:</p>
+                        <ul>
+                            <li>projektowanie aplikacji mobilnych;</li>
+                            <li>tworzenie aplikacji i skryptów po stronie serwera oraz klienta;</li>
+                            <li>współpraca z zespołem programistycznym, projektowym oraz graficznym;</li>
+                            <li>tworzenie systemów "pod klucz" na podstawie specyfikacji przekazanej przez klienta.</li>
+                        </ul>
+
+                        <p>Wymagania:</p>
+                        <ul>
+                            <li>min. 2 lata doświadczenia przy realizacji podobnych projektów;</li>
+                            <li>bardzo dobra znajomość PHP;</li>
+                            <li>doświadczenie z RestAPI;</li>
+                            <li>znajomość założeń projektowych dla rozwiązań Responsive web design (RWD);</li>
+                            <li>dobra znajomość biblioteki jQuery.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" id="headingTwo">
+                    <h2 class="mb-0">
+                        <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            Projekt .NET
+                        </button>
+                    </h2>
+                </div>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                    <div class="card-body">
+                        <p>Zadania:</p>
+                        <ul>
+                            <li>wdrażanie nowego oprogramowania, opartego o najnowsze technologie;</li>
+                            <li>rozbudowywanie oraz modyfikowanie gotowych aplikacji.</li>
+                        </ul>
+                        <p>Wymagania:</p>
+                        <ul>
+                            <li>znajomość C#, HTML, Typescript, Angular;</li>
+                            <li>znajomość .NET, NHibernate, interfejsu WebApi;</li>
+                            <li>język angielski na poziomie umożliwającym czytanie dokumentacji technicznej.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" id="headingThree">
+                    <h2 class="mb-0">
+                        <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            Projekt JAVA
+                        </button>
+                    </h2>
+                </div>
+                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                    <div class="card-body">
+                        <p>Technology stack:</p>
+                        <p>Java, Spring, No sql: Neo4j, Mongo, SQL: Microsoft SQL Server, Jenkins, Maven. </p>
+
+                        <p>Zadania:</p>
+                        <ul>
+                            <li>projektowanie rozwiązań i tworzenie oprogramowania oraz dokumentacji technicznej.</li>
+                        </ul>
+                        <p>Wymagania:</p>
+                        <ul>
+                            <li>znajomość:</li>
+                            <ol type="a">
+                                <li>Java 8;</li>
+                                <li>Spring;</li>
+                                <li>REST;</li>
+                                <li>Oracle;</li>
+                            </ol>
+                            <li>doświadczenie z Docker i Kubernetes.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
+
     <center>
         <div class="footer">
             <a href="https://playitcool.pl">www.playitcool.pl</a>
